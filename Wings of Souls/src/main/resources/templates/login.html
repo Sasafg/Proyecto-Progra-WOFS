@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" 
+      xmlns:sec="http://thymeleaft.org/extras/spring-security">
+
+    <head th:replace="plantilla/template::head"></head>
+
+    <body>
+        <header th:replace="plantilla/template::header-security"></header>
+
+        <div class="container">
+            <div style="width: 600px; margin-left: auto; margin-right: auto;
+                 margin-top: 24px; padding: 24px">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fa fa-user" th:text="#{login.title}"></i>
+                    </div>
+                    <div class="card-block" style="padding: 24px;">
+                        <form name="f" th:action="@{/login}" method="post">
+                            <fieldset>
+                                <!-- Error de Thymeleaf y Spring Security -->
+                                <div th:if="${param.error}" class="alert alert-danger" th:text="#{login.error}">
+                                </div>
+
+                                <div th:if="${param.logout}" class="alert alert-success" th:text="#{login.logout}">
+                                </div>
+
+                                <!-- Controles de inicio de sesión -->
+                                <div class="form-group">
+                                    <label for="txtUsername" th:text="#{login.id}"></label>
+                                    <input type="text" class="form-control" 
+                                           id="username" name="username" th:placeholder="#{login.id}">                    
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="txtPassword" th:text="#{login.password}"></label>
+                                    <input type="password" class="form-control" 
+                                           id="password" name="password" th:placeholder="#{login.password}">                    
+                                </div>
+
+                                <!-- Botón de inicio de sesión -->
+                                <div class="form-actions" style="margin-top: 12px;">
+                                    <button type="submit" class="btn btn-success" th:text="#{login.login}"></button>
+                                </div> 
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+
+    <footer th:replace="plantilla/template::footer" class="foot_area"></footer>
+
+</html>

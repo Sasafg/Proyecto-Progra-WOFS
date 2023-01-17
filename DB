@@ -1,0 +1,96 @@
+CREATE DATABASE WOFS;
+use WOFS;
+
+CREATE TABLE consoles(
+	-- Cuenta el id de la consola
+	id int NOT NULL AUTO_INCREMENT,
+    -- Nombre del producto
+    name varchar(50) NOT NULL,
+    -- Caracteristicas (Controles, memoria, etc)
+    features varchar(255) NOT NULL,
+    -- Cantidad disponible
+    quantity int NOT NULL,
+    -- Estado de la consola (Nuevo o usado)
+    product_condition varchar (30) NOT NULL,
+    -- Precio de la consola
+    price double NOT NULL,
+    -- Ruta de las imágenes
+    img_Link varchar(512),
+    -- Define como llaves primarias al id y el nombre 
+    -- (No va a dar problema al momento de crear 2 Xbox por ejemplo ya que el id nunca se va a duplicar)
+    CONSTRAINT PK_ID_CONSOLES PRIMARY KEY (id, name),
+    -- Genera un indice para el nombre
+    KEY FK_GAMES_CONSOLES_IDX (name)
+);
+
+INSERT INTO consoles VALUES (1, 'PlayStation 5', 'Un control, 825GB de almacenamiento', 6, 'Nuevo', 580000, 'https://firebasestorage.googleapis.com/v0/b/wofs-72cd6.appspot.com/o/ImagenesWOFS%2FConsolas%2FPlay-Station-5-en-Costa-Rica-PS5.jpg?alt=media&token=d053c599-b4fc-404a-8c58-b04748788207'), 
+(2, 'Xbox Series X', 'Un control', 2, 'Nuevo', 350000, 'https://firebasestorage.googleapis.com/v0/b/wofs-72cd6.appspot.com/o/ImagenesWOFS%2FConsolas%2FXbox%20Series%20X.jpeg?alt=media&token=a6cdd349-259a-4122-8bd4-a08bbadf2977'), 
+(3, 'PlayStation 1', 'Dos controles y memory card de 64GB', 1, 'Usado', 45000, 'https://firebasestorage.googleapis.com/v0/b/wofs-72cd6.appspot.com/o/ImagenesWOFS%2FConsolas%2FPS1.png?alt=media&token=f5a8d220-4f48-4421-ba6c-d911b29f07f8');
+
+CREATE TABLE games(
+	-- Cuenta el id del juego
+	id int NOT NULL AUTO_INCREMENT,
+    -- Nombre del producto
+    name varchar(50) NOT NULL,
+    -- Cantidad disponible
+    quantity int NOT NULL,
+    -- Plataforma del juego (Xbox, PlayStation, etc.)
+    platform_id INT NOT NULL,
+    -- Estado del juego (Nuevo o usado)
+    product_condition varchar (30) NOT NULL,
+    -- Precio de la consola
+    price double NOT NULL,
+    -- Ruta de las imágenes
+    img_Link varchar(512),
+    -- Define como llaves primarias al id y la plataforma
+    CONSTRAINT PK_ID_PLATFORM_GAMES PRIMARY KEY (id, platform_id),
+    -- Genera la llave foránea que asocia la plataforma del juego con las consolas
+    CONSTRAINT FK_GAMES_CONSOLES FOREIGN KEY (platform_id) REFERENCES consoles(id)
+);    
+
+INSERT INTO games VALUES (1, 'Crash', 3, 3, 'Nuevo', 2000, 'https://firebasestorage.googleapis.com/v0/b/wofs-72cd6.appspot.com/o/ImagenesWOFS%2FJuegos%2FCrash_Bandicoot_Cover.png?alt=media&token=58bdb59f-2c8e-4b16-9f46-d85f753b2a99'), 
+(2, 'God of war Ragnarok', 2, 1, 'Nuevo', 45000, 'https://firebasestorage.googleapis.com/v0/b/wofs-72cd6.appspot.com/o/ImagenesWOFS%2FJuegos%2FGod_of_War_Ragnar%C3%B6k_cover.jpg?alt=media&token=b4cf49ec-df20-40e6-a928-0d572c21b502'), 
+(3, 'Halo', 12, 2, 'Usado', 12000, 'https://firebasestorage.googleapis.com/v0/b/wofs-72cd6.appspot.com/o/ImagenesWOFS%2FJuegos%2Fgaming_halo_4_cover_art.jpg?alt=media&token=a932aa46-c18f-4ac4-8d2f-14a235cf8839');
+
+CREATE TABLE users(
+	-- Cuenta el id del usuario
+	id int NOT NULL AUTO_INCREMENT,
+    -- Nombre del producto
+    name varchar(50) NOT NULL,
+    -- Identificación del usuario, debe ser única ya que no hay dos personas con la misma identificación
+    identification varchar(30) NOT NULL UNIQUE,
+    -- Número de teléfono de la persona
+    phone varchar(30) NOT NULL,
+    -- Dirección de correo de la persona, debe ser único
+    mail varchar(50) NOT NULL UNIQUE,
+    -- Contraseña de la persona, para el funcionamiento de Spring Security la misma debe guardarse encriptada con el algoritmo BCrypt
+    password varchar(255) NOT NULL,
+    -- Define los permisos del usuario (Se usa en Spring Security)
+    permissions varchar(45) NOT NULL,
+    -- Define los roles del usuario (Se usa en Spring Security)
+    roles varchar(45) NOT NULL,
+    -- Define como un "binario" si el usuario está o no activo, se usa para no eliminar los usuarios, sino desactivarlos
+    active int NOT NULL,
+    -- Define como llave primaria el id
+    CONSTRAINT PK_ID_USERS PRIMARY KEY (id)
+);
+
+INSERT INTO users VALUES (1, 'José', '11111111', '88888888', 'Jose23@gmail.com', '$2a$12$wZaxmQCX0r7qdugepwGPJOzWI6U19FcP9tlcgv/Eo9C8isAX.Gq72', 'ADMIN', 'ADMIN', 1),
+ (2, 'María', '22222222', '88888888', 'Maria45@gmail.com', '$2a$12$wZaxmQCX0r7qdugepwGPJOzWI6U19FcP9tlcgv/Eo9C8isAX.Gq72', 'ADMIN', 'ADMIN', 1);
+
+CREATE TABLE petitions(
+	-- Cuenta el id de la orden
+	id int NOT NULL AUTO_INCREMENT,
+    -- Nombre de la persona
+	name varchar(50) NOT NULL, 
+    -- Contenido de la orden, esto se digita manualmente ya que son solicitudes de orden de las personas
+    description varchar(512),
+    -- Identificación del usuario que coloca la orden
+	user_identification varchar(30) NOT NULL,
+    -- Dirección de contacto del usuario
+	mail varchar(50) NOT NULL,
+    -- Define como llave primaria el ID
+    CONSTRAINT PK_ID_PETITIONS PRIMARY KEY (id)
+);
+
+INSERT INTO petitions VALUES (1, 'José', '3 juegos', 11111111, 'asdaa@hotmail.com')

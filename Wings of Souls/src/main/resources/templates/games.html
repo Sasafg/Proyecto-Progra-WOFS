@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="plantilla/template::head"></head>
+
+    <!-------------TABLA PARA MOSTRAR LO DE BD----------------------------------------------------------------------------------------------------- -->
+
+    <body>
+        <header th:replace="plantilla/template::header-security"></header>
+       
+        <h1 th:text="#{games.list}" class="htgm"></h1>
+
+        <!-- ESTOS SON LOS CARDS, ES NECESARIO APLICARLES EL CSS PARA ACOMODARLOS -->
+        <div class="row row-cols-1 row-cols-md-2 g-3">
+            <th:block th:each="juego : ${juegos}">
+                <div class="column">
+                    <div class="card-gms" style="width: 20rem;">
+                        <img th:src="@{${juego.getImgLink}}"/>
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="${juego.getName}"></h5>
+                            <p class="card-text" th:text="${juego.getConsole.getName}"></p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item" th:text="${juego.getProductCondition}"></li>
+                            <li class="list-group-item" th:text="#{games.price} + ': ' + ${juego.getPrice} + ' colones.'"></li>
+                        </ul>
+                    </div>
+                </div>
+            </th:block>
+        </div>
+
+    </body>
+
+        <footer th:replace="plantilla/template::footer"></footer>
+</html>

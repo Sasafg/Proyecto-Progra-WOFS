@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="plantilla/template::head"></head>
+
+    <body>        
+        <header th:replace="plantilla/template::header-security"></header>
+
+        <!-------------ACÁ VA EL FORMULARIO PARA INGRESAR-GUARDAR LA INFORMACION------------------------>
+        <div class="containerCN">           
+            <div class="card-header bg-black text-white"> </div>   
+            <h1 th:text="#{createconsole.title}"></h1>
+            <div class="card-body">  
+                <div class="container">                 
+                    <form th:object = "${consola}"
+                          th:action="@{/saveconsole}"  
+                          method="POST">
+
+                        <input type="hidden"
+                               th:field="*{id}">                  
+
+                        <div class="form-group mb-3 row">  
+
+                            <label  class="form-control-sm col-md-2  col-form-label" for="nombre" th:text="#{createconsole.name}"></label>    
+                            <div class="col-sm-10">                         
+                                <input type="text" class="form-control form-control-sm col-md-6" th:field="*{Name}" 
+                                       th:placeholder="#{createconsole.name}" id="name" aria-describedby="emailHelp">       
+                            </div>                      
+                        </div>           
+                        <div class="form-group mb-3 row">   
+                            <label  class="form-control-sm col-md-2  col-form-label" for="Features" th:text="#{createconsole.features}"></label>    
+                            <div class="col-sm-10">                               
+                                <input type="text" th:field="*{Features}" 
+                                       class="form-control form-control-sm col-md-6" 
+                                       th:placeholder="#{createconsole.features}" id="Features" aria-describedby="emailHelp"> 
+                            </div>                  
+                        </div>   
+                        <div class="form-group mb-3 row">               
+                            <label  class="form-control-sm col-form-label col-md-2" for="Quantity" th:text="#{createconsole.quantity}"></label> 
+                            <div class="col-sm-10">      
+                                <input type="text" th:field="*{Quantity}" class="form-control form-control-sm col-md-6" 
+                                       id="Quantity" aria-describedby="emailHelp">      
+                            </div>                 
+                        </div>                     
+                        <div class="form-group mb-3 row">    
+                            <label  class="form-control-sm col-form-label col-md-2" for="ProductCondition" th:text="#{createconsole.condition}"></label>  
+                            <div class="col-sm-10">                     
+                                <input type="text" th:field="*{ProductCondition}" class="form-control form-control-sm col-md-6" 
+                                       th:placeholder="#{createconsole.condition}" id="ProductCondition" aria-describedby="emailHelp">       
+                            </div>                 
+                        </div>                       
+                        <div class="form-group mb-3 row"> 
+                            <label  class="form-control-sm  col-form-label col-md-2" for="Price" th:text="#{createconsole.price}"></label> 
+                            <div class="col-sm-10">          
+                                <input type="text" th:field="*{Price}" class="form-control form-control-sm col-md-6"
+                                       th:placeholder="#{createconsole.price}" id="Price" aria-describedby="emailHelp">      
+                            </div>                 
+                        </div>        
+                        <div class="form-group mb-3 row"> 
+                            <label  class="form-control-sm  col-form-label col-md-2" for="LinkImagen" th:text="#{createconsole.link}"></label> 
+                            <div class="col-sm-10">          
+                                <input type="text" th:field="*{imgLink}" class="form-control form-control-sm col-md-6"
+                                       th:placeholder="#{createconsole.link}" id="LinkImagen" aria-describedby="emailHelp">      
+                            </div>                 
+                        </div> 
+
+                </div>                  
+                <button type="submit" class="btn btn-primary" value="Guardar" th:text="#{createconsole.save}"></button>     
+                <a class="btn btn-primary" th:href="@{/listconsolesadmin}" role="button" th:text="#{createconsole.back}"></a>
+
+            </div>       
+        </div>      
+
+    
+</body>
+
+<footer th:replace="plantilla/template::footer" class="foot_area"></footer>
+
+</html>
+
+

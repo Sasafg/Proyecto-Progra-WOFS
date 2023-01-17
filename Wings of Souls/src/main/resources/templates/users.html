@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="plantilla/template::head"></head>
+    <!-------------TABLA PARA MOSTRAR LO DE BD----------------------------------------------------------------------------------------------------- -->
+
+    <body>
+        <header th:replace="plantilla/template::header-security"></header>
+        <h1 th:text="#{user.title}"></h1>
+
+        <table class="table table-striped-columns">
+            <thead>
+                <tr>
+                    <th scope="col" th:text="#{user.id}"></th>
+                    <th scope="col" th:text="#{user.name}"></th>
+                    <th scope="col" th:text="#{user.identification}"></th>
+                    <th scope="col" th:text="#{user.phone}"></th>
+                    <th scope="col" th:text="#{user.mail}"></th>
+                    <th scope="col" th:text="#{user.password}"></th>
+                    <th scope="col" th:text="#{user.permissions}"></th>
+                    <th scope="col" th:text="#{user.roles}"></th>
+                    <th scope="col" th:text="#{user.edit}"></th>
+                    <th scope="col" th:text="#{user.delete}"></th>
+                </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="user : ${usuarios}">
+                <tr> 
+                    <td th:text="${user.getId}"></td>
+                    <td th:text="${user.getName}"></td>
+                    <td th:text="${user.getIdentification}"></td>
+                    <td th:text="${user.getPhone}"></td>
+                    <td th:text="${user.getMail}"></td>
+                    <td th:text="${user.getPassword}"></td>
+                    <td th:text="${user.getPermissions}"></td> 
+                    <td th:text="${user.getRoles}"></td>
+                    <td>
+                        <a th:href="@{/editUser/{id} (id=${user.getId})}" th:text="#{user.edit}"></a>
+                    </td>
+                    <td>
+                        <a th:href="@{/deleteUser/{id} (id=${user.getId})}" th:text="#{user.delete}"></a>
+                    </td>
+                </tr> 
+            </th:block> 
+        </tbody>
+    </table>
+    <a class="btn btn-primary" th:href="@{/createuser}" role="button" th:text="#{user.add}"></a>
+    <a class="btn btn-primary" th:href="@{/report/users}" role="button" th:text="#{user.report}" onclick="showAlert()"></a>
+    <a class="btn btn-primary" th:href="@{/admin}" role="button" th:text="#{user.back}"></a>
+    
+    <script>
+        function showAlert() {
+            alert("Se generó el reporte en D:\\WOFS");
+        }
+    </script>
+</body>
+
+<footer th:replace="plantilla/template::footer" class="foot_area"></footer>
+
+</html>

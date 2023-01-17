@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="plantilla/template::head"></head>
+
+    <body>
+        <header th:replace="plantilla/template::header-security"></header>
+        <!-- <script>
+            alert("prueba de que funciona JS");
+        </script>-->
+
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            <div class="col">
+                <div class="card gow">
+                    <img
+                        src="../images/god.of.ragnarok.jpg"  class="card-img-top"
+                        alt="God of War"
+                        />
+                    <div class="card-body">
+                        <h5 class="card-title">God of War Ragnarok</h5>
+                        <p class="card-text">Available Now!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card gow">
+                    <img
+                        src="../images/mario.jpg"  class="card-img-top"
+                        alt="Mario"
+                        />
+                    <div class="card-body">
+                        <h5 class="card-title">Mario Plus Rabbids Sparks of Hope</h5>
+                        <p class="card-text">Available Now!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="Top-Brands">
+            <h2 class="heading" style="color: #282828" th:text="#{index.topbrands}"></h2>
+
+            <div class="row row-cols-1 row-cols-md-4 g-1">
+                <div class="col top-brands-card">
+                    <div class="card psn">
+                        <img
+                            src="../images/PlayStation-Emblem.png"
+                            class="card-img-top"
+                            alt="Play Station"
+                            />
+                    </div>
+                </div>
+                <div class="col top-brands-card">
+                    <div class="card xbo">
+                        <img
+                            src="../images/xbox-logo.png"  class="card-img-top"
+                            alt="Xbox"
+                            />
+                    </div>
+                </div>
+                <div class="col top-brands-card">
+                    <div class="card nin">
+                        <img
+                            src="../images/Nintendo.png"class="card-img-top"
+                            alt="Nintendo"
+                            />
+                    </div>
+                </div>
+                <div class="col top-brands-card">
+                    <div class="card wii">
+                        <img
+                            src="../images/wii.png" class="card-img-top"
+                            alt="wii"
+                            />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="Top Sellers">
+            <h2 class="heading" style="color: #000000" th:text="#{index.topsellers}"></h2>
+
+            <div class="row row-cols-1 row-cols-md-2 g-6">
+                <div class="col top-sellers">
+                    <div class="card h-100">
+                        <img
+                            src="../images/pokemon.jpg"class="card-img-top"
+                            alt="Pokemon Scarlet and Violet"
+                            />
+                        <div class="card-body">
+                            <h5 class="card-title">Pokemon Scarlet & Violet</h5>
+                            <p class="card-text">
+                                The newest chapters in the Pokémon series, the 
+                                Pokémon Scarlet and Pokémon Violet games, are 
+                                coming to the Nintendo Switch system later this 
+                                year. As the main character, you can explore the
+                                wide-open world of Pokémon Scarlet and Pokémon 
+                                Violet at your own pace.
+                            </p>
+
+                        </div>
+                        <div class="card-footer">
+                            <span class="price">₡40.300 +IVA</span>
+
+                            <!-- //////////////////////////////////////////////////////////////////////////////////////////// -->
+                            <!-- aqui empieza la ventanaa del carrito -->
+
+                            <i class='bx bx-cart add-cart' id="cart-icon" ></i>
+
+                            <div class="cart">
+                                <h2 class="cart-title" >This is Your Cart</h2>
+                                <div class="cart-content">
+                                    <div class="cart-box">
+                                        <img src="../images/pokemon.jpg" alt="" class="cart-img">
+                                        <div class="detail-box">
+                                            <div class="cart-product-title">Pokemon Scarlet and Violet</div>
+                                            <div class="cart-price">₡40.300</div>
+                                            <input type="number" value="1" name="cart-quantity">
+                                        </div>
+                                        <i class='bx bx-trash cart-remove'></i>
+                                    </div>
+
+                                    <div class="total">
+                                        <div class="total-title">Total</div>
+                                        <div class="total-price">₡0</div>
+                                    </div>
+                                    <button type="button" class="btn-buy">BUY NOW!</button>
+                                    <i class='bx bx-x' id="close-cart"></i>
+
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col top-sellers">
+                    <div class="card h-100">
+                        <img
+                            src="../images/ps555.jpg" class="card-img-top"
+                            alt="PLya Station 5"
+                            />
+                        <div class="card-body">
+                            <h5 class="card-title">PLay Station 5</h5>
+                            <p class="card-text">
+                                Powered by an eight-core AMD Zen 2 CPU and
+                                custom AMD Radeon GPU, the PS5 is offered 
+                                in two models: with and without a 4K Blu-ray
+                                drive. Supporting a 120Hz video refresh, the
+                                PS5 is considerably more powerful than the 
+                                PS4 and PS4 Pro. 
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="price">₡528.350 +IVA</span>
+                            <!-- //////////////////////////////////////////////////////////////////////////////////////////// -->
+                            <!-- aqui empieza la ventanaa del carrito -->
+                            <i class='bx bx-cart add-cart' id="cart-icon" ></i>
+                            <div class="cart">
+                                <h2 class="cart-title" >This is Your Cart</h2>
+                                <div class="cart-content">
+
+
+                                    <div class="cart-box">
+                                        <img src="../images/ps555.jpg" alt="" class="cart-img">
+                                        <div class="detail-box">
+                                            <div class="cart-product-title">PLay Station 5</div>
+                                            <div class="cart-price">₡528.350</div>
+                                            <input type="number" value="1" name="cart-quantity">
+                                        </div>
+                                        <i class='bx bx-trash cart-remove'></i>
+                                    </div>
+
+                                    <div class="total">
+                                        <div class="total-title">Total</div>
+                                        <div class="total-price">₡0</div>
+                                    </div>
+                                    <button type="button" class="btn-buy">BUY NOW!</button>
+                                    <i class='bx bx-x' id="close-cart"></i>
+
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col top-sellers">
+                    <div class="card h-100">
+                        <img
+                            src="../images/God-of-War-Ragnarok-ps4.jpg"class="card-img-top"
+                            alt="God of War Ragnarok"
+                            />
+                        <div class="card-body">
+                            <h5 class="card-title">God of War Ragnarok</h5>
+                            <p class="card-text">
+                                God of War Ragnarök doesn't make you wait for the good stuff.
+                                After a chance encounter with the Aesir gods, Thor and Odin,
+                                Kratos and his allies set out to stop the All-Father and prevent
+                                Ragnarök from destroying the world.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="price">₡45.100 +IVA</span>
+                            <!-- //////////////////////////////////////////////////////////////////////////////////////////// -->
+                            <!-- aqui empieza la ventanaa del carrito -->
+
+                            <i class='bx bx-cart add-cart' id="cart-icon" ></i>
+                            <div class="cart">
+                                <h2 class="cart-title" >This is Your Cart</h2>
+                                <div class="cart-content">
+
+
+                                    <div class="cart-box">
+                                        <img src="../images/God-of-War-Ragnarok-ps4.jpg" alt="" class="cart-img">
+                                        <div class="detail-box">
+                                            <div class="cart-product-title">God of War Ragnarok</div>
+                                            <div class="cart-price">₡45.100</div>
+                                            <input type="number" value="1" name="cart-quantity">
+                                        </div>
+                                        <i class='bx bx-trash cart-remove'></i>
+                                    </div>
+
+                                    <div class="total">
+                                        <div class="total-title">Total</div>
+                                        <div class="total-price">₡0</div>
+                                    </div>
+                                    <button type="button" class="btn-buy">BUY NOW!</button>
+                                    <i class='bx bx-x' id="close-cart"></i>
+
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col top-sellers">
+                    <div class="card h-100">
+                        <img
+                            src="../images/call-of-dutty.jpg"
+                            class="card-img-top"
+                            alt="CoD Modern Warfare 2"
+                            />
+                        <div class="card-body">
+                            <h5 class="card-title">Call Of Duty MW2</h5>
+                            <p class="card-text">
+                                Call of Duty: Modern Warfare 2 is a first 
+                                person shooter, and its gameplay revolves 
+                                around fast-paced gunfights against enemy
+                                combatants. The player controls a soldier
+                                who can perform several actions, including
+                                jump, sprint, crouch, lay prone, and aim down
+                                their gun's iron sights.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="price">₡42.600 +IVA</span>
+                            <!-- //////////////////////////////////////////////////////////////////////////////////////////// -->
+                            <!-- aqui empieza la ventanaa del carrito -->
+
+                            <i class='bx bx-cart add-cart' id="cart-icon" ></i>
+                            <div class="cart">
+                                <h2 class="cart-title" >This is Your Cart</h2>
+                                <div class="cart-content">
+
+
+                                    <div class="cart-box">
+                                        <img src="../images/call-of-dutty.jpg" alt="" class="cart-img">
+                                        <div class="detail-box">
+                                            <div class="cart-product-title">Call Of Duty MW2</div>
+                                            <div class="cart-price">₡42.600</div>
+                                            <input type="number" value="1" name="cart-quantity">
+                                        </div>
+                                        <i class='bx bx-trash cart-remove'></i>
+                                    </div>
+
+                                    <div class="total">
+                                        <div class="total-title">Total</div>
+                                        <div class="total-price">₡0</div>
+                                    </div>
+                                    <button type="button" class="btn-buy">BUY NOW!</button>
+                                    <i class='bx bx-x' id="close-cart"></i>
+
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col top-sellers">
+                    <div class="card h-100">
+                        <img
+                            src="../images/switch.jpg"    class="card-img-top"
+                            alt="Nintendo Switch"
+                            />
+                        <div class="card-body">
+                            <h5 class="card-title">Nintendo Switch</h5>
+                            <p class="card-text">
+                                The Nintendo Switch is a hybrid video game
+                                console developed by Nintendo and released 
+                                worldwide in most regions on March 3, 2017.
+                                The console itself is a tablet that can either
+                                be docked for use as a home console or used as 
+                                a portable device, making it a hybrid console.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="price">₡120.300 +IVA</span>
+                            <!-- //////////////////////////////////////////////////////////////////////////////////////////// -->
+                            <!-- aqui empieza la ventanaa del carrito -->
+
+                            <i class='bx bx-cart add-cart' id="cart-icon" ></i>
+                            <div class="cart">
+                                <h2 class="cart-title" >This is Your Cart</h2>
+                                <div class="cart-content">
+
+
+                                    <div class="cart-box">
+                                        <img src="../images/switch.jpg" alt="" class="cart-img">
+                                        <div class="detail-box">
+                                            <div class="cart-product-title">Nintendo Switch</div>
+                                            <div class="cart-price">₡120.300</div>
+                                            <input type="number" value="1" name="cart-quantity">
+                                        </div>
+                                        <i class='bx bx-trash cart-remove'></i>
+                                    </div>
+
+                                    <div class="total">
+                                        <div class="total-title">Total</div>
+                                        <div class="total-price">₡0</div>
+                                    </div>
+                                    <button type="button" class="btn-buy">BUY NOW!</button>
+                                    <i class='bx bx-x' id="close-cart"></i>
+
+                                </div> 
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="Top-Sellers-Pre-Used">
+            
+        <h2 class="heading" style="color: #000000" th:text="#{index.inTrend}"></h2>
+        <div class="row row-cols-1 row-cols-md-2 g-6">
+                <div class="col">
+                    <div class="card h-100">
+                        <img
+                            src="../images/ps42.jpg" class="card-img-top"
+                            alt="Play Station 4"
+                            />
+                        <div class="card-body">
+                            <h5 class="card-title">Play Station 4 PRO</h5>
+                            <p class="card-text">
+                                What is special about the PS4 Pro?
+                                The PS4 Pro has the same processor and memory as the Slim model, though 
+                                it adds an additional 1 GB of DDR3 memory used for applications running 
+                                in the background. The main difference is in its improved graphics unit, 
+                                also from AMD Radeon, of 4.20 TeraFlops.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <!--  <small class="text-muted"> </small>// esto espara desabilitar el texto -->  
+                            <span class="price">₡456.900 +IVA</span>
+                            <!-- //////////////////////////////////////////////////////////////////////////////////////////// -->
+                            <!-- aqui empieza la ventanaa del carrito -->
+
+                            <i class='bx bx-cart add-cart' id="cart-icon" ></i>
+                            <div class="cart">
+                                <h2 class="cart-title" >This is Your Cart</h2>
+                                <div class="cart-content">
+
+
+                                    <div class="cart-box">
+                                        <img src="../images/ps42.jpg" alt="" class="cart-img">
+                                        <div class="detail-box">
+                                            <div class="cart-product-title">Play Station 4 PRO</div>
+                                            <div class="cart-price">₡456.900</div>
+                                            <input type="number" value="1" name="cart-quantity">
+                                        </div>
+                                        <i class='bx bx-trash cart-remove'></i>
+                                    </div>
+
+                                    <div class="total">
+                                        <div class="total-title">Total</div>
+                                        <div class="total-price">₡0</div>
+                                    </div>
+                                    <button type="button" class="btn-buy">BUY NOW!</button>
+                                    <i class='bx bx-x' id="close-cart"></i>
+
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col top-trend">
+                    <div class="card h-100">
+                        <img
+                            src="../images/xbox-x.jpg" class="card-img-top"
+                            alt="Xbox Series X"
+                            />
+                        <div class="card-body">
+                            <h5 class="card-title">Xbox Series X</h5>
+                            <p class="card-text">
+                                The PlayStation 4 features Wi-Fi and Ethernet connectivity, Bluetooth, and two USB 3.0 ports. 
+                                An auxiliary port is also included for connection to the PlayStation Camera, a motion detection 
+                                digital camera device first introduced on the PS3.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="price">₡465.300 +IVA</span>
+                            <!-- //////////////////////////////////////////////////////////////////////////////////////////// -->
+                            <!-- aqui empieza la ventanaa del carrito -->
+
+                            <i class='bx bx-cart add-cart' id="cart-icon" ></i>
+                            <div class="cart">
+                                <h2 class="cart-title" >This is Your Cart</h2>
+                                <div class="cart-content">
+
+
+                                    <div class="cart-box">
+                                        <img src="../images/xbox-x.jpg" alt="" class="cart-img">
+                                        <div class="detail-box">
+                                            <div class="cart-product-title">Xbox Series X</div>
+                                            <div class="cart-price">₡465.300</div>
+                                            <input type="number" value="1" name="cart-quantity">
+                                        </div>
+                                        <i class='bx bx-trash cart-remove'></i>
+                                    </div>
+
+                                    <div class="total">
+                                        <div class="total-title">Total</div>
+                                        <div class="total-price">₡0</div>
+                                    </div>
+                                    <button type="button" class="btn-buy">BUY NOW!</button>
+                                    <i class='bx bx-x' id="close-cart"></i>
+                                </div> 
+                            </div>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col top-trend">
+                    <div class="card h-100">
+                        <img
+                            src="../images/control.ps4.jpg" class="card-img-top"
+                            alt="Play Station 4 Controller"
+                            />
+                        <div class="card-body">
+                            <h5 class="card-title">Play Station 4 Controller</h5>
+                            <p class="card-text">
+                                It features innovations to deliver more immersive gaming experiences, including a highly 
+                                responsive six-axis sensor, as well as a touchpad located on top of the controller, 
+                                offering gamers new ways to play and interact with games.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="price">₡22.300 +IVA</span>
+                            <!-- //////////////////////////////////////////////////////////////////////////////////////////// -->
+                            <!-- aqui empieza la ventanaa del carrito -->
+
+                            <i class='bx bx-cart add-cart' id="cart-icon" ></i>
+                            <div class="cart">
+                                <h2 class="cart-title" >This is Your Cart</h2>
+                                <div class="cart-content">
+
+
+                                    <div class="cart-box">
+                                        <img src="../images/control.ps4.jpg" alt="" class="cart-img">
+                                        <div class="detail-box">
+                                            <div class="cart-product-title">Play Station 4 Controller</div>
+                                            <div class="cart-price">₡22.300</div>
+                                            <input type="number" value="1" name="cart-quantity">
+                                        </div>
+                                        <i class='bx bx-trash cart-remove'></i>
+                                    </div>
+
+                                    <div class="total">
+                                        <div class="total-title">Total</div>
+                                        <div class="total-price">₡0</div>
+                                    </div>
+                                    <button type="button" class="btn-buy">BUY NOW!</button>
+                                    <i class='bx bx-x' id="close-cart"></i>
+
+                                </div> 
+                            </div>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col top-trend">
+                    <div class="card h-100">
+                        <img
+                            src="../images/pokv.jpg" class="card-img-top"
+                            alt="Nintendo Switch Lite Pokemon Version"
+                            />
+                        <div class="card-body">
+                            <h5 class="card-title">Nintendo Switch Lite Pokemon Version</h5>
+                            <p class="card-text">
+
+                                This version of the console is black both on the casing and on the buttons and on the back
+                                it has details in gold and silver of Palkia and Dalgia, the legendary Pokémon that star in
+                                the covers of these games. The design is even the same as the limited edition Nintendo DS
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="price">₡126.300 +IVA</span>
+                            <!-- //////////////////////////////////////////////////////////////////////////////////////////// -->
+                            <!-- aqui empieza la ventanaa del carrito -->
+
+                            <i class='bx bx-cart add-cart' id="cart-icon" ></i>
+                            <div class="cart">
+                                <h2 class="cart-title" >This is Your Cart</h2>
+                                <div class="cart-content">
+
+
+                                    <div class="cart-box">
+                                        <img src="../images/pokv.jpg" alt="" class="cart-img">
+                                        <div class="detail-box">
+                                            <div class="cart-product-title">Nintendo Switch Lite Pokemon Version</div>
+                                            <div class="cart-price">₡126.300</div>
+                                            <input type="number" value="1" name="cart-quantity">
+                                        </div>
+                                        <i class='bx bx-trash cart-remove'></i>
+                                    </div>
+
+                                    <div class="total">
+                                        <div class="total-title">Total</div>
+                                        <div class="total-price">₡0</div>
+                                    </div>
+                                    <button type="button" class="btn-buy">BUY NOW!</button>
+                                    <i class='bx bx-x' id="close-cart"></i>
+
+                                </div> 
+                            </div>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+                
+                    </div>
+                </div>
+
+            
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+            <h3 class="carrusel">Lo Más Buscado</h3>
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="../images/PS52.jpg"  alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="../images/ps4S.jpg"  alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="../images/control.ps4.jpg"  alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <script src="" th:src="@{js/main.js}"></script>    
+
+    </body>
+    <!--footer-->
+    <footer th:replace="plantilla/template::footer" class="foot_area"></footer>
+
+    
+</html>

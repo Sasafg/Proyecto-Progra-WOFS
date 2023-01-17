@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="plantilla/template::head"></head>
+
+    <body>        
+        <header th:replace="plantilla/template::header-security"></header>
+
+        <!-------------ACÁ VA EL FORMULARIO PARA INGRESAR-GUARDAR LA INFORMACION------------------------>
+        <div class="container">           
+            <div class="card-header bg-black text-white"> </div>   
+            <h1 th:text="#{creategame.title}"></h1>
+            <div class="card-body">  
+                <div class="container">                 
+                    <form th:object = "${juego}"
+                          th:action="@{/savegame}"  
+                          method="POST">
+
+                        <input type="hidden"
+                               th:field="*{id}">                  
+
+                        <div class="form-group mb-8 row">  
+
+                            <label  class="form-control-sm col-md-2 col-form-label" for="Nombre" th:text="#{creategame.name}">Name</label>    
+                            <div class="col-sm-5">                         
+                                <input type="text" class="form-control form-control-sm col-md-6" th:field="*{Name}" 
+                                       th:placeholder="#{creategame.name}" id="Name" aria-describedby="emailHelp">       
+                            </div>                      
+                        </div>           
+                        <div class="form-group mb-3 row">   
+                            <label  class="form-control-sm col-md-2  col-form-label" for="Cantidad" th:text="#{creategame.quantity}"></label>    
+                            <div class="col-sm-10">                               
+                                <input type="text" th:field="*{Quantity}" 
+                                       class="form-control form-control-sm col-md-6" 
+                                       th:placeholder="#{creategame.quantity}" id="Quantity" aria-describedby="emailHelp"> 
+                            </div>                  
+                        </div>   
+                        <div class="form-group mb-3 row">               
+                            <label  class="form-control-sm col-form-label col-md-2" for="platform_id" th:text="#{creategame.platform}"></label> 
+                            <div class="col-sm-10">      
+                                <!-- Esto es un dropdown con la etiqueta select para escoger el país, el seleccionado se va con el th:field como si se hubiese digitado-->
+                                <select  th:field="*{console}" class="form-control form-control-sm col-md-6" id="console" aria-describedby="emailHelp">
+                                    <!-- Por cada pais en la lista de paises, toma el valor del ID y muestra el país -->
+                                    <option th:each="x:${consolas}"
+                                            th:value="${x.id}"
+                                            th:text="${x.name}"/>
+                                </select>      
+                            </div>                 
+                        </div>                     
+                        <div class="form-group mb-3 row">    
+                            <label  class="form-control-sm col-form-label col-md-2" for="Condición" th:text="#{creategame.condition}"></label>  
+                            <div class="col-sm-10">                     
+                                <input type="text" th:field="*{productCondition}" class="form-control form-control-sm col-md-6" 
+                                       th:placeholder="#{creategame.condition}" id="productCondition" aria-describedby="emailHelp">       
+                            </div>                 
+                        </div>                       
+                        <div class="form-group mb-3 row"> 
+                            <label  class="form-control-sm  col-form-label col-md-2" for="Precio" th:text="#{creategame.price}"></label> 
+                            <div class="col-sm-10">          
+                                <input type="text" th:field="*{Price}" class="form-control form-control-sm col-md-6"
+                                       id="Price" aria-describedby="emailHelp">      
+                            </div>                 
+                        </div>  
+                        <div class="form-group mb-3 row"> 
+                            <label  class="form-control-sm  col-form-label col-md-2" for="LinkImagen" th:text="#{creategame.link}"></label> 
+                            <div class="col-sm-10">          
+                                <input type="text" th:field="*{imgLink}" class="form-control form-control-sm col-md-6"
+                                       th:placeholder="#{creategame.link}" id="LinkImagen" aria-describedby="emailHelp">      
+                            </div>                 
+                        </div>                  
+
+                </div>                  
+                <button type="submit" class="btn btn-primary" value="Guardar" th:text="#{creategame.save}"></button>      
+                <a class="btn btn-primary" th:href="@{/listgamesadmin}" role="button" th:text="#{creategame.back}"></a>
+            </div>       
+        </div>      
+
+    </form> 
+</body>
+
+<footer th:replace="plantilla/template::footer" class="foot_area"></footer>
+
+</html>
+
+
+

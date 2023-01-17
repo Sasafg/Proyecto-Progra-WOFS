@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="plantilla/template::head"></head>
+
+    <body>        
+        <header th:replace="plantilla/template::header-security"></header>
+
+
+        <!-------------ACÁ VA EL FORMULARIO PARA INGRESAR-GUARDAR LA INFORMACION------------------------>
+        <div class="container">           
+            <div class="card-header bg-black text-white"> </div> 
+            <h1 th:text="#{createuser.title}"></h1>
+            <div class="card-body">  
+                <div class="container">                 
+                    <form th:object = "${usuario}"
+                          th:action="@{/saveuser}"  
+                          method="POST">
+
+                        <input type="hidden"
+                               th:field="*{id}">                  
+
+                        <div class="form-group mb-3 row">  
+
+                            <label  class="form-control-sm col-md-2 col-form-label" for="Nombre" th:text="#{createuser.name}"></label>    
+                            <div class="col-sm-10">                         
+                                <input type="text" class="form-control form-control-sm col-md-6" th:field="*{Name}" 
+                                       th:placeholder="#{createuser.name}" id="Name" aria-describedby="emailHelp">       
+                            </div>                      
+                        </div>           
+                        <div class="form-group mb-3 row">   
+                            <label  class="form-control-sm col-md-2  col-form-label" for="Identificación" th:text="#{createuser.identification}"></label>    
+                            <div class="col-sm-10">                               
+                                <input type="text" th:field="*{Identification}" 
+                                       class="form-control form-control-sm col-md-6" 
+                                       th:placeholder="#{createuser.identification}" id="Identification" aria-describedby="emailHelp"> 
+                            </div>                  
+                        </div>   
+                        <div class="form-group mb-3 row">               
+                            <label  class="form-control-sm col-form-label col-md-2" for="Teléfono" th:text="#{createuser.phone}"></label> 
+                            <div class="col-sm-10">      
+                                <input type="text" th:field="*{Phone}" class="form-control form-control-sm col-md-6" 
+                                       th:placeholder="#{createuser.phone}" id="Phone" aria-describedby="emailHelp">      
+                            </div>                 
+                        </div>                     
+                        <div class="form-group mb-3 row">    
+                            <label  class="form-control-sm col-form-label col-md-2" for="Correo" th:text="#{createuser.mail}"></label>  
+                            <div class="col-sm-10">                     
+                                <input type="text" th:field="*{Mail}" class="form-control form-control-sm col-md-6" 
+                                       th:placeholder="#{createuser.mail}" id="Mail" aria-describedby="emailHelp">       
+                            </div>                 
+                        </div>                       
+                        <div class="form-group mb-3 row"> 
+                            <label  class="form-control-sm  col-form-label col-md-2" for="Contraseña" th:text="#{createuser.password}"></label> 
+                            <div class="col-sm-10">          
+                                <input type="text" th:field="*{Password}" class="form-control form-control-sm col-md-6"
+                                       th:placeholder="#{createuser.password}" id="Password" aria-describedby="emailHelp">      
+                            </div>                 
+                        </div>                     
+                        <!-- ESTOS 3 PARÁMETROS DEBERÍAN SER DROPDOWNS CON LAS OPCIONES UNA VEZ CONFIGURADO SPRING SECURITY -->
+                        <div class="form-group mb-3 row"> 
+                            <label  class="form-control-sm  col-form-label col-md-2" for="Permisos" th:text="#{createuser.permissions}"></label> 
+                            <div class="col-sm-10">          
+                                <input type="text" th:field="*{Permissions}" class="form-control form-control-sm col-md-6"
+                                       th:placeholder="#{createuser.permissions}" id="Permissions" aria-describedby="emailHelp">      
+                            </div>                 
+                        </div> 
+                        <div class="form-group mb-3 row"> 
+                            <label  class="form-control-sm  col-form-label col-md-2" for="Roles" th:text="#{createuser.roles}"></label> 
+                            <div class="col-sm-10">          
+                                <input type="text" th:field="*{Roles}" class="form-control form-control-sm col-md-6"
+                                       th:placeholder="#{createuser.roles}" id="Role" aria-describedby="emailHelp">      
+                            </div>                 
+                        </div> 
+                        <div class="form-group mb-3 row"> 
+                            <label  class="form-control-sm  col-form-label col-md-2" for="Activo" th:text="#{createuser.active}"></label> 
+                            <div class="col-sm-10">          
+                                <input type="text" th:field="*{Active}" class="form-control form-control-sm col-md-6"
+                                       th:placeholder="#{createuser.active}" id="Active" aria-describedby="emailHelp">      
+                            </div>                 
+                        </div> 
+                </div>                  
+                <button type="submit" class="btn btn-primary" value="Guardar" th:text="#{createuser.add}"></button>      
+                <a class="btn btn-primary" th:href="@{/listusers}" role="button" th:text="#{createuser.back}"></a>
+            </div>       
+        </div>      
+
+    </form> 
+</body>
+
+<footer th:replace="plantilla/template::footer" class="foot_area"></footer>
+
+</html>
+
+
+

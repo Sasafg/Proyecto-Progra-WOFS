@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="plantilla/template::head"></head>
+    <!-------------TABLA PARA MOSTRAR LO DE BD----------------------------------------------------------------------------------------------------- -->
+
+    <body>
+        <header th:replace="plantilla/template::header-security"></header>
+
+        <h1 th:text="#{petition.title}"></h1>
+
+        <table class="table table-striped-columns">
+            <thead>
+                <tr>
+                    <th scope="col" th:text="#{petition.id}"></th>
+                    <th scope="col" th:text="#{petition.name}"></th>
+                    <th scope="col" th:text="#{petition.description}"></th>
+                    <th scope="col" th:text="#{petition.mail}"></th>
+                    <th scope="col" th:text="#{petition.edit}"></th>
+                    <th scope="col" th:text="#{petition.delete}"></th>
+                </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="petition : ${solicitudes}">
+                <tr> 
+                    <td th:text="${petition.getId}"></td>
+                    <td th:text="${petition.getName}"></td>
+                    <td th:text="${petition.getDescription}"></td> 
+                    <td th:text="${petition.getMail}"></td>
+                    <td>
+                        <a th:href="@{/editPetition/{id} (id=${petition.getId})}" th:text="#{petition.edit}"></a>
+                    </td>
+                    <td>
+                        <a th:href="@{/deletePetition/{id} (id=${petition.getId})}" th:text="#{petition.delete}"></a>
+                    </td>
+                </tr> 
+            </th:block> 
+        </tbody>
+    </table>
+    <a class="btn btn-primary" th:href="@{/report/petitions}" role="button" th:text="#{petition.report}" onclick="showAlert()"></a>
+    <a class="btn btn-primary" th:href="@{/admin}" role="button" th:text="#{petition.back}"></a>
+
+    <script>
+        function showAlert() {
+            alert("Se generó el reporte en D:\\WOFS");
+        }
+    </script>
+</body>
+
+<footer th:replace="plantilla/template::footer" class="foot_area"></footer>
+
+</html>

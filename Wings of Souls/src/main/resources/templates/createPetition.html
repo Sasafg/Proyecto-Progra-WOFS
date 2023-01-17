@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+    <html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="plantilla/template::head"></head>
+    
+    
+       <body>
+    <header th:replace="plantilla/template::header-security"></header>
+
+    <!-------------ACÁ VA EL FORMULARIO PARA INGRESAR-GUARDAR LA INFORMACION------------------------>
+    
+    
+    
+    <h1 th:text="#{createpetition.title}"></h1>
+    <form th:object = "${solicitud}"
+          th:action="@{/savepetition}"  
+          method="POST">
+
+        <input type="hidden"
+               th:field="*{id}">                  
+
+        <div class="form-group mb-3 row">  
+
+            <label  class="form-control-sm col-md-2 col-form-label" for="Nombre" th:text="#{createpetition.name}"></label>    
+            <div class="col-sm-10">                         
+                <input type="text" class="form-control form-control-sm col-md-6" th:field="*{Name}" 
+                       th:placeholder="#{createpetition.name}" id="Name" aria-describedby="emailHelp">       
+            </div>                      
+        </div>           
+        <div class="form-group mb-3 row">   
+            <label  class="form-control-sm col-md-2  col-form-label" for="Descripción" th:text="#{createpetition.description}"></label>    
+            <div class="col-sm-10">                               
+                <input type="text" th:field="*{Description}" 
+                       class="form-control form-control-sm col-md-6" 
+                       th:placeholder="#{createpetition.description}" id="Description" aria-describedby="emailHelp"> 
+            </div>                  
+        </div>   
+        <div class="form-group mb-3 row">               
+            <label  class="form-control-sm col-form-label col-md-2" for="Indentificación" th:text="#{createpetition.id}"></label> 
+            <div class="col-sm-10">      
+                <input type="text" th:field="*{userIdentification}" class="form-control form-control-sm col-md-6" 
+                       th:placeholder="#{createpetition.id}" id="userIdentification" aria-describedby="emailHelp">      
+            </div>                 
+        </div>                     
+        <div class="form-group mb-3 row">    
+            <label  class="form-control-sm col-form-label col-md-2" for="Mail" th:text="#{createpetition.mail}"></label>  
+            <div class="col-sm-10">                     
+                <input type="text" th:field="*{Mail}" class="form-control form-control-sm col-md-6" 
+                       th:placeholder="#{createpetition.mail}" id="Mail" aria-describedby="emailHelp">       
+            </div>                 
+        </div>                                         
+
+    </div>                  
+    <button type="submit" class="btn btn-primary" value="Guardar" th:text="#{createpetition.save}"></button>      
+    <a class="btn btn-primary" th:href="@{/}" role="button" th:text="#{createpetition.back}"></a>
+</div>       
+</div>      
+
+</form> 
+</body>
+
+<footer th:replace="plantilla/template::footer" class="foot_area"></footer>
+
+</html>
+
+
+

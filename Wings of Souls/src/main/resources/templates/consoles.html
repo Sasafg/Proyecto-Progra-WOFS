@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="plantilla/template::head"></head>
+    <!-------------TABLA PARA MOSTRAR LO DE BD----------------------------------------------------------------------------------------------------- -->
+
+    <body>
+        <header th:replace="plantilla/template::header-security"></header>    
+        <h1 th:text="#{consoles.list}" class="htc"></h1>
+
+        <!-- ESTOS SON LOS CARDS, ES NECESARIO APLICARLES EL CSS PARA ACOMODARLOS -->
+         <div class="row row-cols-1 row-cols-md-2 g-3">
+            <th:block th:each="consola : ${consolas}">
+                <div class="card-cns" style="width: 18rem;">
+                    <img th:src="@{${consola.getImgLink}}"/>
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${consola.getName}"></h5>
+                        <p class="card-text" th:text="${consola.getFeatures}"></p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item" th:text="${consola.getProductCondition}"></li>
+                        <li class="list-group-item" th:text="#{consoles.price} + ': ' + ${consola.getPrice} + ' colones.'"></li>
+                    </ul>
+                </div>
+            </th:block>
+        </div>
+
+</body>
+
+<footer th:replace="plantilla/template::footer"></footer><
+</html>
